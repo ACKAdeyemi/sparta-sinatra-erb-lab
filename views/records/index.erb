@@ -1,0 +1,11 @@
+<h1>Records Homepage</h1>
+
+<% @records.each do |record| %>
+  <h3><%= record[:title] %></h3>
+  <a href="/records/<%= record[:id] %>">See more</a>
+  <a href="/records/<%= record[:id] %>/edit">Edit</a>
+  <form action="/records/<%= record[:id] %>" method="post">
+    <input type="submit" value="DELETE">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+<% end %>
