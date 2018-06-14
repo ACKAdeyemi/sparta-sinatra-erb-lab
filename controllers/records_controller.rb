@@ -8,8 +8,6 @@ class RecordsController < Sinatra::Base
 
   set :views, Proc.new { File.join(root, "views") }
 
-  # patient records - title, first_name, last_name, house_no, street, city, postcode, phone_number, DoB
-
   $records = [
     {
       :id => 0,
@@ -41,14 +39,14 @@ class RecordsController < Sinatra::Base
   get '/records' do
     @title = "Patient Records Index"
 
-    @records = $records # sets global variable to records hash
+    @records = $records # sets global variable to 'records' hash
 
-    erb :'records/index' # directs to index.erb (no need to write views/... as views has been set as root)
+    erb :'records/index' # directs to index.erb
   end
 
   # NEW
   get '/records/new' do
-    @title = "Create New Patient Record" # global variable, use them sparingly
+    @title = "Create New Patient Record"
 
     @record = {
       :id => "",
@@ -105,13 +103,7 @@ class RecordsController < Sinatra::Base
   get '/records/:id/edit' do
     id = params[:id].to_i
 
-    # title = @record[:title]
-    # f_name = @record[:first_name]
-    # l_name = @record[:last_name]
-    #
-    # @title = "Edit patient record for #{title} #{f_name} #{l_name}"
-
-    @title = "Edit Patient Record" # Find out from Jack how to add name info here
+    @title = "Edit Patient Record"
 
     @record = $records[id]
 
