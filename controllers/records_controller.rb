@@ -1,6 +1,6 @@
 class RecordsController < Sinatra::Base
 
-  configire :development do
+  configure :development do
     register Sinatra::Reloader
   end
 
@@ -20,7 +20,7 @@ class RecordsController < Sinatra::Base
       :street => "Castle Yard",
       :city => "London",
       :postcode => "TW10 6TF",
-      :phone_number => "01010101010",
+      :phone_number => "07711223344",
       :d_of_b => "01/01/1991"
     },
     {
@@ -32,7 +32,7 @@ class RecordsController < Sinatra::Base
       :street => "Castle Yard",
       :city => "London",
       :postcode => "TW10 6TF",
-      :phone_number => "02020202020",
+      :phone_number => "07799223344",
       :d_of_b => "02/02/1992"
     }
   ]
@@ -119,7 +119,7 @@ class RecordsController < Sinatra::Base
 
     record[:title] = params[:title] # update hash with values from URL/params
     record[:first_name] = params[:first_name]
-    record[:last_name = params[:last_name]
+    record[:last_name] = params[:last_name]
     record[:house_no] = params[:house_no]
     record[:street] = params[:street]
     record[:city] = params[:city]

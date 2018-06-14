@@ -1,4 +1,4 @@
-<h1><%= @record[:title] %></h1>
+<h1>Patient record for <%= @record[:title] %> <%= @record[:first_name] %> <%= @record[:last_name] %></h1>
 
 <p><%= @record[:first_name] %></p>
-<a href="/<%= @record[:id] %>/edit">Edit</a>
+<a href="/records/<%= @record[:id] %>/edit">Edit</a>
