@@ -1,0 +1,10 @@
+<h1>Patient record for <%= @record[:title] %> <%= @record[:first_name] %> <%= @record[:last_name] %></h1>
+
+<p>House Number: <%= @record[:house_no] %></p>
+<p>Street: <%= @record[:street] %></p>
+<p>City: <%= @record[:city] %></p>
+<p>Postcode: <%= @record[:postcode] %></p>
+<p>Phone Number: <%= @record[:phone_number] %></p>
+<p>Date of Birth: <%= @record[:d_of_b] %></p>
+
+<a href="/records/<%= @record[:id] %>/edit">Edit</a>

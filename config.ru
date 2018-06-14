@@ -1,6 +1,8 @@
 require 'Sinatra'
-require 'Sinatra/reloader'
+require 'Sinatra/reloader' if development?
+require_relative './controllers/records_controller.rb'
 
-require_relative 'records_controller.rb'
+use Rack::Reloader
+use Rack::MethodOverride
 
 run RecordsController

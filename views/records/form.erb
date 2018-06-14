@@ -1,0 +1,55 @@
+<form action="/records<% if (@record[:id] != '') %>/<%= @record[:id] %><% end %>" method="POST">
+
+  <div>
+    <label>Patient's Title: </label>
+    <input type="text" name="title" placeholder="Mr/Mrs/Ms/etc." value="<%= @record[:title] %>">
+  </div>
+
+  <div>
+    <label>Patient's First Name: </label>
+    <input type="text" name="first_name" placeholder="John or Jane" value="<%= @record[:first_name] %>">
+  </div>
+
+  <div>
+    <label>Patient's Last Name: </label>
+    <input type="text" name="last_name" placeholder="Doe" value="<%= @record[:last_name] %>">
+  </div>
+
+  <div>
+    <label>Patient's House Number: </label>
+    <input type="number" name="house_no" placeholder="1" value="<%= @record[:house_no] %>">
+  </div>
+
+  <div>
+    <label>Patient's Street: </label>
+    <input type="text" name="street" placeholder="Street name" value="<%= @record[:street] %>">
+  </div>
+
+  <div>
+    <label>Patient's City: </label>
+    <input type="text" name="city" placeholder="City name" value="<%= @record[:city] %>">
+  </div>
+
+  <div>
+    <label>Patient's Postcode: </label>
+    <input type="text" name="postcode" placeholder="AB12 3CD" value="<%= @record[:postcode] %>">
+  </div>
+
+  <div>
+    <label>Patient's Phone Number: </label>
+    <input type="tel" name="phone_number" placeholder="01234567890" value="<%= @record[:phone_number] %>">
+  </div>
+
+  <div>
+    <label>Patient's Date of Birth: </label>
+    <input type="date" name="d_of_b" value="<%= @record[:d_of_b] %>">
+  </div>
+
+  <input type="submit" value="submit">
+
+  <!-- checks for id on new and edit pages - if doesn't exist then create, if exists then update -->
+  <% if (@record[:id] != '') %>
+    <input type="hidden" name="_method" value="PUT"> <!-- works together with method override (in config) to make PUT request -->
+  <% end %>
+
+</form>
