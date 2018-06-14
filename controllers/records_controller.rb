@@ -50,7 +50,7 @@ class RecordsController < Sinatra::Base
   get '/records/new' do
     @title = "New Patient Record" # global variable, use them sparingly
 
-    @records = {
+    @record = {
       :id => "",
       :title => "",
       :first_name => "",
@@ -77,6 +77,28 @@ class RecordsController < Sinatra::Base
   end
 
   # CREATE
+  post '/records' do
+    # puts params # on submit, form data submits to URL
+
+    id = $records.last[:id] + 1
+
+    new_record = {
+      :id => id,
+      :title => params[:title],
+      :first_name => params[:first_name],
+      :last_name => params[:last_name],
+      :house_no => params[:house_no],
+      :street => params[:street],
+      :city => params[:city],
+      :postcode => params[:postcode],
+      :phone_number => params[:phone_number],
+      :d_of_b => params[:d_of_b]
+    }
+
+    $records.push new_record
+
+    redirect '/records'
+  end
 
   # EDIT
   get '/records/:id/edit' do
@@ -89,7 +111,34 @@ class RecordsController < Sinatra::Base
   end
 
   # UPDATE
+  put '/records/:id' do
+
+    id = params[:id].to_i
+
+    record = $records[id] # get hash from array
+
+    record[:title] = params[:title] # update hash with values from URL/params
+    record[:first_name] = params[:first_name]
+    record[:last_name = params[:last_name]
+    record[:house_no] = params[:house_no]
+    record[:street] = params[:street]
+    record[:city] = params[:city]
+    record[:postcode] = params[:postcode]
+    record[:phone_number] = params[:phone_number]
+    record[:d_of_b] = params[:d_of_b]
+
+    $records[id] = record # save new data back into array
+
+    redirect '/records'
+  end
 
   # DESTROY
+  delete '/records/:id' do
+    id = params[:id].to_i
+
+    $records.delete_at id
+
+    redirect '/records'
+  end
 
 end
