@@ -39,8 +39,8 @@ class RecordsController < Sinatra::Base
 
   # INDEX
   get '/records' do
+    @title = "Patient Records Index"
 
-    @title = "Records Index"
     @records = $records # sets global variable to records hash
 
     erb :'records/index' # directs to index.erb (no need to write views/... as views has been set as root)
@@ -48,7 +48,7 @@ class RecordsController < Sinatra::Base
 
   # NEW
   get '/records/new' do
-    @title = "New Patient Record" # global variable, use them sparingly
+    @title = "Create New Patient Record" # global variable, use them sparingly
 
     @record = {
       :id => "",
@@ -70,7 +70,8 @@ class RecordsController < Sinatra::Base
   get '/records/:id' do
     id = params[:id].to_i
 
-    @title = "Show Record"
+    @title = "Show Patient Record"
+
     @record = $records[id]
 
     erb :'records/show'
@@ -104,8 +105,13 @@ class RecordsController < Sinatra::Base
   get '/records/:id/edit' do
     id = params[:id].to_i
 
+    title = @record[:title]
+    f_name = @record[:first_name]
+    l_name = @record[:last_name]
+
+    @title = "Edit Patient Record" # Find out from Jack how to add name info here
+
     @record = $records[id]
-    @title = @record[:title]
 
     erb :'records/edit'
   end

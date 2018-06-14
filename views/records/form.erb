@@ -1,13 +1,48 @@
 <form action="/records<% if (@record[:id] != '') %>/<%= @record[:id] %><% end %>" method="POST">
 
   <div>
-    <label>Patient's Title</label>
+    <label>Patient's Title: </label>
     <input type="text" name="title" value="<%= @record[:title] %>">
   </div>
 
   <div>
-    <label>Patient's First Name</label>
+    <label>Patient's First Name: </label>
     <input type="text" name="first_name" value="<%= @record[:first_name] %>">
+  </div>
+
+  <div>
+    <label>Patient's Last Name: </label>
+    <input type="text" name="last_name" value="<%= @record[:last_name] %>">
+  </div>
+
+  <div>
+    <label>Patient's House Number: </label>
+    <input type="text" name="house_no" value="<%= @record[:house_no] %>">
+  </div>
+
+  <div>
+    <label>Patient's Street: </label>
+    <input type="text" name="street" value="<%= @record[:street] %>">
+  </div>
+
+  <div>
+    <label>Patient's City: </label>
+    <input type="text" name="city" value="<%= @record[:city] %>">
+  </div>
+
+  <div>
+    <label>Patient's Postcode: </label>
+    <input type="text" name="postcode" value="<%= @record[:postcode] %>">
+  </div>
+
+  <div>
+    <label>Patient's Phone Number: </label>
+    <input type="text" name="phone_number" value="<%= @record[:phone_number] %>">
+  </div>
+
+  <div>
+    <label>Patient's Date of Birth: </label>
+    <input type="text" name="d_of_b" value="<%= @record[:d_of_b] %>">
   </div>
 
   <input type="submit" value="submit">

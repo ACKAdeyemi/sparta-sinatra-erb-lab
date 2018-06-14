@@ -1,5 +1,5 @@
 <h1>Patient Records Homepage</h1>
-<p>On this page, patients are shown by the their title, first and last name. You can click see more below the patient's name to access more information on the patient. You also have the options to edit and delete the records.</p>
+<p>On this page, patients are shown by the their title, first and last name. You can view, edit and delete the records.</p>
 <% @records.each do |record| %>
   <div>
     <br>
@@ -7,7 +7,7 @@
     <p><%= record[:phone_number] %></p>
     <p><%= record[:d_of_b] %></p>
   </div>
-  <a href="/records/<%= record[:id] %>">See more</a>
+  <a href="/records/<%= record[:id] %>">See more info on <%= record[:title] %> <%= record[:last_name] %></a>
   <a href="/records/<%= record[:id] %>/edit">Edit</a>
   <form action="/records/<%= record[:id] %>" method="post">
     <input type="submit" value="DELETE">
