@@ -105,9 +105,11 @@ class RecordsController < Sinatra::Base
   get '/records/:id/edit' do
     id = params[:id].to_i
 
-    title = @record[:title]
-    f_name = @record[:first_name]
-    l_name = @record[:last_name]
+    # title = @record[:title]
+    # f_name = @record[:first_name]
+    # l_name = @record[:last_name]
+    #
+    # @title = "Edit patient record for #{title} #{f_name} #{l_name}"
 
     @title = "Edit Patient Record" # Find out from Jack how to add name info here
 
